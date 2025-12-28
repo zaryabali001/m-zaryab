@@ -94,21 +94,21 @@ export function Footer() {
               <ul className="space-y-2">
                 <li>
                   <a
-                    href="mailto:john.doe@example.com"
+                    href="mailto:azaryab820@gmail.com"
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
-                    john.doe@example.com
+                    azaryab820@gmail.com
                   </a>
                 </li>
                 <li>
                   <a
-                    href="tel:+15551234567"
+                    href="tel:+923090270809"
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
-                    +1 (555) 123-4567
+                    +92 309 0270809
                   </a>
                 </li>
-                <li className="text-sm text-muted-foreground">San Francisco, CA</li>
+                <li className="text-sm text-muted-foreground">Rawalpindi, Pakistan</li>
               </ul>
             </div>
           </div>
@@ -117,7 +117,7 @@ export function Footer() {
           <div className="pt-8 border-t border-border">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <p className="text-sm text-muted-foreground text-center md:text-left">
-                © {currentYear} John Doe. All rights reserved.
+                © {currentYear} M Zaryab. All rights reserved.
               </p>
               <div className="flex items-center gap-1 text-sm text-muted-foreground">
                 <span>Made with</span>
