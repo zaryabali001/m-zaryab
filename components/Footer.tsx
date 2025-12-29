@@ -19,7 +19,7 @@ export function Footer() {
             <div className="md:col-span-1">
               <div className="flex items-center gap-2 mb-4">
                 <Code2 className="w-6 h-6 text-primary" />
-                <span className="text-xl">John Doe</span>
+                <span className="text-xl">M Zaryab</span>
               </div>
               <p className="text-sm text-muted-foreground">
                 Building exceptional digital experiences with modern technologies.

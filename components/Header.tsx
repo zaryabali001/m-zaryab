@@ -119,7 +119,7 @@ export function Header() {
               </div>
               <div>
                 <div className="text-xs text-muted-foreground">Portfolio</div>
-                <div className="text-sm">John Doe</div>
+                <div className="text-sm">M Zaryab</div>
               </div>
             </div>
             <button
