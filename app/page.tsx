@@ -30,7 +30,7 @@ export default function App() {
       <MobileNav />
       <main className="pb-20 md:pb-0">
         <Hero />
-        {/* <About /> */}
+        <About />
         <Experience />
         <Skills />
         <Projects />
