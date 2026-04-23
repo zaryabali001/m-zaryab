@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Github, Linkedin, Loader2 } from "lucide-react";
 import { Card } from "./ui/card";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
@@ -7,6 +7,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 export function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,11 +15,32 @@ export function Contact() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would send the form data to a server
-    toast.success("Message sent successfully! I'll get back to you soon.");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast.success("Message sent successfully! I'll get back to you soon.");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        throw new Error("Failed to send");
+      }
+    } catch (error) {
+      toast.error("Failed to send message. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -32,7 +54,7 @@ export function Contact() {
       icon: Mail,
       label: "Email",
       value: "azaryab820@gmail.com",
-      link: "mailto:john.doe@example.com",
+      link: "mailto:azaryab820@gmail.com",
     },
     {
       icon: Phone,
@@ -55,12 +77,11 @@ export function Contact() {
     <section id="contact" className="py-20 relative">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-4">
               Let&lsquo;s Connect
             </span>
-            <h2 className="text-4xl md:text-5xl mb-4">Get In Touch</h2>
+            <h2 className="text-4xl md:text-5xl mb-4 font-bold">Get In Touch</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               I&#39;m always open to discussing new projects, creative ideas, or opportunities to be
               part of an ambitious vision. Feel free to get in touch!
@@ -68,10 +89,9 @@ export function Contact() {
           </div>
 
           <div className="grid md:grid-cols-5 gap-8">
-            {/* Contact Info */}
             <div className="md:col-span-2 space-y-6">
               <div>
-                <h3 className="text-2xl mb-6">Contact Information</h3>
+                <h3 className="text-2xl mb-6 font-semibold">Contact Information</h3>
                 <div className="space-y-4">
                   {contactInfo.map((info, index) => {
                     const Icon = info.icon;
@@ -81,20 +101,13 @@ export function Contact() {
                         className="p-4 bg-card border-border hover:border-primary/50 transition-all"
                       >
                         {info.link ? (
-                          <a
-                            href={info.link}
-                            className="flex items-start gap-4 group"
-                          >
+                          <a href={info.link} className="flex items-start gap-4 group">
                             <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
                               <Icon className="w-5 h-5 text-primary" />
                             </div>
                             <div>
-                              <p className="text-sm text-muted-foreground mb-1">
-                                {info.label}
-                              </p>
-                              <p className="group-hover:text-primary transition-colors">
-                                {info.value}
-                              </p>
+                              <p className="text-sm text-muted-foreground mb-1">{info.label}</p>
+                              <p className="group-hover:text-primary transition-colors">{info.value}</p>
                             </div>
                           </a>
                         ) : (
@@ -103,9 +116,7 @@ export function Contact() {
                               <Icon className="w-5 h-5 text-primary" />
                             </div>
                             <div>
-                              <p className="text-sm text-muted-foreground mb-1">
-                                {info.label}
-                              </p>
+                              <p className="text-sm text-muted-foreground mb-1">{info.label}</p>
                               <p>{info.value}</p>
                             </div>
                           </div>
@@ -116,9 +127,8 @@ export function Contact() {
                 </div>
               </div>
 
-              {/* Social Links */}
               <div>
-                <h3 className="text-xl mb-4">Follow Me</h3>
+                <h3 className="text-xl mb-4 font-semibold">Follow Me</h3>
                 <div className="flex items-center gap-3">
                   {socialLinks.map((social, index) => {
                     const Icon = social.icon;
@@ -139,16 +149,13 @@ export function Contact() {
               </div>
             </div>
 
-            {/* Contact Form */}
             <div className="md:col-span-3">
               <Card className="p-6 bg-card border-border">
-                <h3 className="text-2xl mb-6">Send Me a Message</h3>
+                <h3 className="text-2xl mb-6 font-semibold">Send Me a Message</h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name" className="block mb-2">
-                        Your Name
-                      </label>
+                      <label htmlFor="name" className="block mb-2 text-sm font-medium">Your Name</label>
                       <Input
                         id="name"
                         name="name"
@@ -161,9 +168,7 @@ export function Contact() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block mb-2">
-                        Your Email
-                      </label>
+                      <label htmlFor="email" className="block mb-2 text-sm font-medium">Your Email</label>
                       <Input
                         id="email"
                         name="email"
@@ -177,9 +182,7 @@ export function Contact() {
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="subject" className="block mb-2">
-                      Subject
-                    </label>
+                    <label htmlFor="subject" className="block mb-2 text-sm font-medium">Subject</label>
                     <Input
                       id="subject"
                       name="subject"
@@ -192,9 +195,7 @@ export function Contact() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block mb-2">
-                      Message
-                    </label>
+                    <label htmlFor="message" className="block mb-2 text-sm font-medium">Message</label>
                     <Textarea
                       id="message"
                       name="message"
@@ -208,10 +209,15 @@ export function Contact() {
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                    disabled={isSubmitting}
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
                   >
-                    <Send className="w-4 h-4 mr-2" />
-                    Send Message
+                    {isSubmitting ? (
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    ) : (
+                      <Send className="w-4 h-4 mr-2" />
+                    )}
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </Card>
@@ -220,7 +226,6 @@ export function Contact() {
         </div>
       </div>
 
-      {/* Background Decoration */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
