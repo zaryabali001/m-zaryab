@@ -13,49 +13,6 @@ export function Projects() {
 
   const projects = [
     {
-      title: "Doctor Appointment Booking System",
-      description: "",
-      image: "/doctor.png",
-      tags: ["JavaScript", "React", "Tailwind"],
-      category: "React",
-      github: "https://github.com/zaryabali001/Doctors-managemant-system-MERN",
-      demo: "https://prescripto.vercel.app/"
-    },
-    {
-      title: "Hotel Booking App",
-      description: "",
-      image: "/hotel.png",
-      tags: ["JavaScript", "React", "Tailwind"],
-      category: "Machine Learning",
-      github: "",
-      demo: "https://hb-gs.vercel.app/",
-    },
-    {
-      title: "GSAP Awwwards Website",
-      description: "",
-      image: "/awwards-CFh_on9N.png",
-      tags: ["JavaScript", "React", "Tailwind", "GSAP"],
-      category: "React",
-      github: "https://awwwards-website-clone.netlify.app/",
-      demo: "https://github.com/zaryabali001/GSAP-Awwwards-Website-main",
-    },
-    {
-      title: "Food Delivery App",
-      description: "",
-      image: "/foodApp-CFmvF5j-.png",
-      tags: ["JavaScript", "React", "Tailwind"],
-      category: "Cloud",
-      github: "https://food-delivery-react-00.netlify.app/",
-    },
-    {
-      title: "Tour Guide (AI Powered)",
-      description: "",
-      image: "/tour-BmyhTLRr.png",
-      tags: ["React", "Next" , "Node", "OpenAi", "Redux", "Google Maps","MongoDB","Clerk" ],
-      category: "React",
-      github: "https://github.com/zaryabali001/fyp2",
-    },
-    {
       title: "ai-imaging diagnos",
       description: "",
       image: "/ai-imaging.png ",
@@ -100,6 +57,86 @@ export function Projects() {
       github: "https://github.com/zaryabali001/updated-code",
       demo: "https://updated-code-6myr.vercel.app/"
     },
+    {
+      title: "Sana AI",
+      description: "",
+      image: "/sanaai.png",
+      tags: ["TypeScript", "Next", "Tailwind", "APIs"],
+      category: "Next",
+      // github: "https://github.com/zaryabali001/updated-code",
+      demo: "https://sana-ai-blush.vercel.app/"
+    },
+    {
+      title: "EV Square",
+      description: "",
+      image: "/ev.png",
+      tags: ["TypeScript", "Next", "Tailwind", "APIs"],
+      category: "Next",
+      // github: "https://github.com/zaryabali001/updated-code",
+      demo: "https://ev-square-ichx.vercel.app/"
+    },
+    {
+      title: "Global Pharmaceutical",
+      description: "",
+      image: "/global.png",
+      tags: ["TypeScript", "Next", "Tailwind", "APIs"],
+      category: "Next",
+      // github: "https://github.com/zaryabali001/updated-code",
+      demo: "https://pharm-global-nlzf.vercel.app/"
+    },
+    {
+      title: "EMRChains Website",
+      description: "",
+      image: "/emr-website.png",
+      tags: ["TypeScript", "Next", "Tailwind", "APIs"],
+      category: "Next",
+      // github: "https://github.com/zaryabali001/updated-code",
+      demo: "https://emr-website-ivory.vercel.app/"
+    },
+    {
+      title: "Doctor Appointment Booking System",
+      description: "",
+      image: "/doctor.png",
+      tags: ["JavaScript", "React", "Tailwind"],
+      category: "React",
+      github: "https://github.com/zaryabali001/Doctors-managemant-system-MERN",
+      demo: "https://prescripto.vercel.app/"
+    },
+    {
+      title: "Hotel Booking App",
+      description: "",
+      image: "/hotel.png",
+      tags: ["JavaScript", "React", "Tailwind"],
+      category: "Machine Learning",
+      github: "",
+      demo: "https://hb-gs.vercel.app/",
+    },
+    {
+      title: "GSAP Awwwards Website",
+      description: "",
+      image: "/awwards-CFh_on9N.png",
+      tags: ["JavaScript", "React", "Tailwind", "GSAP"],
+      category: "React",
+      github: "https://awwwards-website-clone.netlify.app/",
+      demo: "https://github.com/zaryabali001/GSAP-Awwwards-Website-main",
+    },
+    {
+      title: "Food Delivery App",
+      description: "",
+      image: "/foodApp-CFmvF5j-.png",
+      tags: ["JavaScript", "React", "Tailwind"],
+      category: "Cloud",
+      github: "https://food-delivery-react-00.netlify.app/",
+    },
+    {
+      title: "Tour Guide (AI Powered)",
+      description: "",
+      image: "/tour-BmyhTLRr.png",
+      tags: ["React", "Next" , "Node", "OpenAi", "Redux", "Google Maps","MongoDB","Clerk" ],
+      category: "React",
+      github: "https://github.com/zaryabali001/fyp2",
+    },
+    
   ];
 
   const filteredProjects =
