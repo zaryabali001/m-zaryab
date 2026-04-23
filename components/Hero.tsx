@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
-import Image from "next/image";
-
+"use client";
 import {
   Github,
   Linkedin,
@@ -24,7 +23,7 @@ export function Hero() {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const descRef = useRef<HTMLParagraphElement>(null);
-  const socialRef = useRef<HTMLDivElement>(null);
+  // const socialRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const codeBlockRef = useRef<HTMLDivElement>(null);
 
@@ -38,14 +37,14 @@ export function Hero() {
           titleRef.current,
           subtitleRef.current,
           descRef.current,
-          socialRef.current,
-          ctaRef.current,
+          // socialRef.current,
+          // ctaRef.current,
           codeBlockRef.current,
         ],
         {
           opacity: 0,
           y: 30,
-        }
+        },
       );
 
       tl.to(profileRef.current, {
@@ -59,17 +58,17 @@ export function Hero() {
         .to(titleRef.current, { opacity: 1, y: 0, duration: 0.8 }, "-=0.5")
         .to(subtitleRef.current, { opacity: 1, y: 0, duration: 0.8 }, "-=0.5")
         .to(descRef.current, { opacity: 1, y: 0, duration: 0.8 }, "-=0.5")
-        .to(codeBlockRef.current, { opacity: 1, y: 0, duration: 0.8 }, "-=0.4")
-        .to(
-          socialRef.current?.children || [],
-          { opacity: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.1 },
-          "-=0.3"
-        )
-        .to(
-          ctaRef.current?.children || [],
-          { opacity: 1, y: 0, duration: 0.6, stagger: 0.15 },
-          "-=0.2"
-        );
+        .to(codeBlockRef.current, { opacity: 1, y: 0, duration: 0.8 }, "-=0.4");
+      // .to(
+      //   socialRef.current?.children || [],
+      //   { opacity: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.1 },
+      //   "-=0.3"
+      // )
+      // .to(
+      //   ctaRef.current?.children || [],
+      //   { opacity: 1, y: 0, duration: 0.6, stagger: 0.15 },
+      //   "-=0.2"
+      // );
 
       gsap.to(profileRef.current, {
         y: -15,
@@ -117,9 +116,9 @@ export function Hero() {
               {/* Mobile: Profile Image */}
               <div className="md:hidden mb-8 flex justify-center">
                 <div ref={profileRef} className="relative group">
-                  <div className="absolute -inset-4 bg-gradient-to-r from-primary via-accent to-primary rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition-opacity animate-gradient"></div>
+                  <div className="absolute -inset-4 bg-linear-to-r from-primary via-accent to-primary rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition-opacity animate-gradient"></div>
 
-                  <div className="relative w-32 h-32 rounded-full bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center border-2 border-primary/50 overflow-hidden backdrop-blur-sm">
+                  <div className="relative w-32 h-32 rounded-full bg-linear-to-br from-primary/30 to-accent/30 flex items-center justify-center border-2 border-primary/50 overflow-hidden backdrop-blur-sm">
                     <img
                       src="/hexagen-image.png"
                       alt="Profile"
@@ -127,13 +126,13 @@ export function Hero() {
                     />
                   </div>
 
-                  <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center border-2 border-background shadow-lg">
+                  <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-linear-to-br from-primary to-accent rounded-full flex items-center justify-center border-2 border-background shadow-lg">
                     <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                   </div>
                 </div>
               </div>
 
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 rounded-full mb-4 md:mb-6 backdrop-blur-sm text-xs md:text-sm">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-linear-to-r from-primary/20 to-accent/20 border border-primary/30 rounded-full mb-4 md:mb-6 backdrop-blur-sm text-xs md:text-sm">
                 <Terminal className="w-3 h-3 md:w-4 md:h-4 text-primary" />
                 <span>Available for new projects</span>
               </div>
@@ -145,7 +144,7 @@ export function Hero() {
                 <span className="block text-foreground/60 text-xl md:text-2xl mb-2">
                   Hi, I'm
                 </span>
-                <span className="block bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient">
+                <span className="block bg-linear-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient">
                   M Zaryab
                 </span>
               </h1>
@@ -167,11 +166,15 @@ export function Hero() {
 
               {/* Social Links */}
               <div
-                ref={socialRef}
-                className="flex items-center justify-center md:justify-start gap-3 mb-6 md:mb-8"
+                // ref={socialRef}
+                className="flex opacity-80 items-center justify-center md:justify-start gap-3 mb-6 md:mb-8"
               >
                 {[
-                  { icon: Github, href: "https://github.com/zaryabali001", label: "GitHub" },
+                  {
+                    icon: Github,
+                    href: "https://github.com/zaryabali001",
+                    label: "GitHub",
+                  },
                   {
                     icon: Linkedin,
                     href: "https://www.linkedin.com/in/mzaryabali/",
@@ -179,7 +182,7 @@ export function Hero() {
                   },
                   {
                     icon: Mail,
-                    href: "azaryab820@gmail.com",
+                    href: "mailto:azaryab820@gmail.com",
                     label: "Email",
                   },
                 ].map((social, index) => {
@@ -190,11 +193,11 @@ export function Hero() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-xl md:rounded-full bg-secondary hover:bg-primary/20 border border-border hover:border-primary transition-all group"
                       aria-label={social.label}
+                      className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-xl md:rounded-full bg-secondary hover:bg-primary/20 border border-border hover:border-primary transition-all group"
                     >
                       <Icon className="w-4 h-4 md:w-5 md:h-5 relative z-10 group-hover:scale-110 transition-transform" />
-                      <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-xl md:rounded-full opacity-0 group-hover:opacity-100 blur-lg transition-opacity"></div>
+                      <div className="absolute inset-0 bg-linear-to-r from-primary to-accent rounded-xl md:rounded-full opacity-0 group-hover:opacity-100 blur-lg transition-opacity"></div>
                     </a>
                   );
                 })}
@@ -202,46 +205,47 @@ export function Hero() {
 
               {/* CTA Buttons */}
               <div
-                ref={ctaRef}
+                // ref={ctaRef}
                 className="flex flex-col md:flex-row items-stretch md:items-center justify-center md:justify-start gap-3 md:gap-4"
               >
                 <Button
                   onClick={() => scrollToSection("contact")}
-                  className="w-full md:w-auto bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground px-6 md:px-8 py-5 md:py-6 rounded-xl md:rounded-lg shadow-2xl shadow-primary/25 hover:shadow-primary/50 transition-all group overflow-hidden text-sm md:text-base"
+                  className="w-full md:w-auto bg-linear-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground px-6 md:px-8 py-5 md:py-6 rounded-xl md:rounded-lg shadow-2xl shadow-primary/25 hover:shadow-primary/50 transition-all group overflow-hidden text-sm md:text-base"
                 >
                   <span className="relative z-10">Get in Touch</span>
                 </Button>
-                <Button
-                  variant="outline"
-                  className="w-full md:w-auto border-2 border-primary/50 hover:bg-primary/10 hover:border-primary px-6 md:px-8 py-5 md:py-6 rounded-xl md:rounded-lg group overflow-hidden transition-all text-sm md:text-base"
-                >
-                  <Download className="w-4 h-4 mr-2 group-hover:animate-bounce" />
-                  <span>Download CV</span>
-                </Button>
+                <a href="/MuhammadZaryab-resume.pdf" download>
+                  <Button
+                    variant="outline"
+                    className="w-full md:w-auto border-2 border-primary/50 hover:bg-primary/10 hover:border-primary px-6 md:px-8 py-5 md:py-6 rounded-xl md:rounded-lg group overflow-hidden transition-all text-sm md:text-base hover:text-white"
+                  >
+                    <Download className="w-4 h-4 mr-2 group-hover:animate-bounce" />
+                    <span>Download CV</span>
+                  </Button>
+                </a>
               </div>
             </div>
 
             {/* Right Column - Code Block / Visual */}
             <div className="order-1 md:order-2">
               {/* Desktop: Profile Image */}
-                      <div className="hidden md:block mb-8">
-              <div ref={profileRef} className="relative group mx-auto w-fit">
-                <div className="absolute -inset-6 bg-gradient-to-r from-primary via-accent to-primary rounded-full blur-3xl opacity-30 group-hover:opacity-50 transition-opacity animate-gradient"></div>
+              <div className="hidden md:block mb-8">
+                <div ref={profileRef} className="relative group mx-auto w-fit">
+                  <div className="absolute -inset-6 bg-linear-to-r from-primary via-accent to-primary rounded-full blur-3xl opacity-30 group-hover:opacity-50 transition-opacity animate-gradient"></div>
 
-                <div className="relative w-48 h-48 lg:w-56 lg:h-56 rounded-full bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center border-2 border-primary/50 overflow-hidden backdrop-blur-sm">
-                  <img
-                    src="/hexagen-image.png"
-                    alt="Profile"
-                    className="w-full h-full object-cover rounded-full"
-                  />
-                </div>
+                  <div className="relative w-48 h-48 lg:w-56 lg:h-56 rounded-full bg-linear-to-br from-primary/30 to-accent/30 flex items-center justify-center border-2 border-primary/50 overflow-hidden backdrop-blur-sm">
+                    <img
+                      src="/hexagen-image.png"
+                      alt="Profile"
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  </div>
 
-                <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center border-4 border-background shadow-lg">
-                  <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                  <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center border-4 border-background shadow-lg">
+                    <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                  </div>
                 </div>
               </div>
-            </div>
-
 
               {/* Code Block */}
               <div

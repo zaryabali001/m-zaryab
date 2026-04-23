@@ -61,7 +61,7 @@ export function MobileNav() {
                 }`}
               >
                 {isActive && (
-                  <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-8 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>
+                  <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-8 h-1 bg-linear-to-r from-primary to-accent rounded-full"></div>
                 )}
                 <div className={`relative transition-transform ${isActive ? "scale-110" : ""}`}>
                   <Icon className="w-5 h-5" />
