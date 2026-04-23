@@ -4,22 +4,18 @@ import { Card } from "./ui/card";
 export function Experience() {
   const experiences = [
     {
-      title: "Website Developer",
+      title: "Website Developer & Designer",
       company: " EMRCains",
-      period: "sep 2025 - Present",
+      period: "May 2025 - Present",
       description:
         "Worked across design and development to build modern, scalable web solutions using Figma, Next.js, and WordPress, transforming concepts into high-performance, user-focused digital experiences.",
       highlights: [
-        "Implemented CI/CD pipeline that reduced deployment times by 50%",
-        "Designed intuitive UI/UX in Figma, creating wireframes, design systems, and high-fidelity prototypes",
-
-        "Developed fast, SEO-optimized applications with Next.js using reusable, scalable components",
-
+        " Designed intuitive UI/UX in Figma, creating wireframes, design systems, and high-fidelity prototypes ",
+        "Developed fast, SEO-optimized applications with Next.js using reusable, scalable components ",
+        "Built robust backend services and REST APIs using Node.js and Express, ensuring secure and scalable architecture",
         "Built and customized WordPress websites with custom themes, plugins, and CMS integrations",
-
         "Improved performance, responsiveness, and user experience across all platforms",
-
-        "Ensured smooth collaboration between design and development through clean handoffs and best practices",
+        "Ensured smooth collaboration between design and development through clean handoffs and best practicesandoffs and best practices",
       ],
     },
     // {
